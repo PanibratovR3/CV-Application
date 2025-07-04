@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./App.css";
 import GeneralInformation from "./components/generalInformation.jsx";
 import Output from "./components/output.jsx";
+import Education from "./components/education.jsx";
 
 function App() {
   const [personalData, setPersonalData] = useState({
@@ -34,12 +35,15 @@ function App() {
   };
   return (
     <div className="field">
-      <GeneralInformation
-        handlerNameChange={handleNameChange}
-        handlerEmailChange={handleEmailChange}
-        handlerPhoneChange={handlePhoneChange}
-        handlerPersonalSubmit={handlePersonalDataSubmit}
-      />
+      <div>
+        <GeneralInformation
+          handlerNameChange={handleNameChange}
+          handlerEmailChange={handleEmailChange}
+          handlerPhoneChange={handlePhoneChange}
+          handlerPersonalSubmit={handlePersonalDataSubmit}
+        />
+        <Education />
+      </div>
       <Output personalData={personalData} showData={showCVFlag} />
     </div>
   );
