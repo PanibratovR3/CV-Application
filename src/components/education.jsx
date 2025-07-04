@@ -21,6 +21,9 @@ function Education() {
           <label>To: </label>
           <input type="date" />
         </div>
+        <div className="row">
+          <button type="submit">Submit</button>
+        </div>
       </form>
     </div>
   );
