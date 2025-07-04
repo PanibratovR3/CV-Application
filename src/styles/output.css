@@ -1,0 +1,26 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.row-output {
+    display: flex;
+    font-size: 1rem;
+    padding: 10px 0;
+}
+
+/* .row-output b {
+    flex: 1;
+} */
+.row-output i {
+    margin-left: 10px;
+}
+
+.personal-data {
+    border-bottom: 1px solid black;
+    max-height: 150px;
+}
+/* .label {
+    font-size: 1.5rem;
+} */
