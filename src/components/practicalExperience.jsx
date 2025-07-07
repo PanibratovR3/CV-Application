@@ -19,6 +19,7 @@ function PracticalExperience({
           <label>Company Name:</label>
           <input
             type="text"
+            placeholder="Abstergo"
             value={practicalExperienceData.companyName}
             onChange={handlerCompanyNameChange}
           />
@@ -27,6 +28,7 @@ function PracticalExperience({
           <label>Position Title:</label>
           <input
             type="text"
+            placeholder="Scientist"
             value={practicalExperienceData.positionTitle}
             onChange={handlerPositionTitleChange}
           />
@@ -36,6 +38,7 @@ function PracticalExperience({
           <textarea
             value={practicalExperienceData.responsibilities}
             onChange={handlerResponsibilitiesChange}
+            placeholder="Been there, done that."
           />
         </div>
         <div className="row">
