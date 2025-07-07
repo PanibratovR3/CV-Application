@@ -198,6 +198,14 @@ function App() {
       workingThereFlag: false,
     });
   };
+
+  const handlePracticalExperienceDelete = (id) => {
+    setPracticalExperienceDataArray([
+      ...practicalExperienceDataArray.filter(
+        (practicalExperienceItem) => practicalExperienceItem.id !== id
+      ),
+    ]);
+  };
   if (updateEducationFlag) {
     return (
       <div>
@@ -247,6 +255,7 @@ function App() {
           showData={showCVFlag}
           handlerEducationDelete={handleEducationDelete}
           handlerEducationUpdate={handleEducationUpdate}
+          handlerPracticalExperienceDelete={handlePracticalExperienceDelete}
         />
       </div>
     );
