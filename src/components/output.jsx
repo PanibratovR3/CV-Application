@@ -1,6 +1,11 @@
 import "../styles/output.css";
 
-function Output({ personalData, educationArray, showData }) {
+function Output({
+  personalData,
+  educationArray,
+  showData,
+  handlerEducationDelete,
+}) {
   return (
     showData && (
       <div>
@@ -21,9 +26,23 @@ function Output({ personalData, educationArray, showData }) {
               {educationArray.map((educationItem) => {
                 return (
                   <li key={educationItem.id}>
-                    <b>{educationItem.schoolName}</b>,{" "}
-                    <i>{educationItem.titleOfStudy}</i>, {educationItem.from} -{" "}
-                    {educationItem.to}
+                    <div className="education-row">
+                      <div className="education-text">
+                        <b>{educationItem.schoolName}</b>,{" "}
+                        <i>{educationItem.titleOfStudy}</i>,{" "}
+                        {educationItem.from} - {educationItem.to}
+                      </div>
+                      <div className="control">
+                        <button
+                          className="delete"
+                          onClick={() =>
+                            handlerEducationDelete(educationItem.id)
+                          }
+                        >
+                          Delete
+                        </button>
+                      </div>
+                    </div>
                   </li>
                 );
               })}

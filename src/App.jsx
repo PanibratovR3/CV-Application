@@ -81,6 +81,11 @@ function App() {
       to: "",
     });
   };
+  const handleEducationDelete = (id) => {
+    setEducationDataArray([
+      ...educationDataArray.filter((educationItem) => educationItem.id !== id),
+    ]);
+  };
   return (
     <div className="field">
       <div>
@@ -103,6 +108,7 @@ function App() {
         personalData={personalData}
         educationArray={educationDataArray}
         showData={showCVFlag}
+        handlerEducationDelete={handleEducationDelete}
       />
     </div>
   );

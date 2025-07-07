@@ -27,3 +27,17 @@ li {
 .education {
     border-bottom: 1px solid black;
 }
+
+.education-row {
+    display: flex;
+    gap: 16px;
+}
+
+.education-text {
+    padding-top: 10px;
+}
+
+.delete {
+    background-color: darkred;
+    color: white;
+}
