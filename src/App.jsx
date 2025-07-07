@@ -10,6 +10,14 @@ function App() {
     email: "",
     phoneNumber: "",
   });
+  const [educationDataArray, setEducationDataArray] = useState([]);
+  const [educationFormData, setEducationFormData] = useState({
+    schoolName: "",
+    titleOfStudy: "",
+    from: "",
+    to: "",
+  });
+
   const [showCVFlag, setShowCVFlag] = useState(false);
   const handleNameChange = (event) => {
     setPersonalData({
@@ -33,6 +41,46 @@ function App() {
     event.preventDefault();
     setShowCVFlag(true);
   };
+  const handleSchoolNameChange = (event) => {
+    setEducationFormData({
+      ...educationFormData,
+      schoolName: event.target.value,
+    });
+  };
+  const handleTitleOfStudyChange = (event) => {
+    setEducationFormData({
+      ...educationFormData,
+      titleOfStudy: event.target.value,
+    });
+  };
+  const handleFromDateChange = (event) => {
+    setEducationFormData({
+      ...educationFormData,
+      from: event.target.value,
+    });
+  };
+  const handleToDateChange = (event) => {
+    setEducationFormData({
+      ...educationFormData,
+      to: event.target.value,
+    });
+  };
+  const handleEducationSubmit = (event) => {
+    event.preventDefault();
+    setEducationDataArray([
+      ...educationDataArray,
+      {
+        id: crypto.randomUUID(),
+        ...educationFormData,
+      },
+    ]);
+    setEducationFormData({
+      schoolName: "",
+      titleOfStudy: "",
+      from: "",
+      to: "",
+    });
+  };
   return (
     <div className="field">
       <div>
@@ -42,9 +90,20 @@ function App() {
           handlerPhoneChange={handlePhoneChange}
           handlerPersonalSubmit={handlePersonalDataSubmit}
         />
-        <Education />
+        <Education
+          educationData={educationFormData}
+          handlerSchoolNameChange={handleSchoolNameChange}
+          handlerTitleOfStudyChange={handleTitleOfStudyChange}
+          handlerFromDateChange={handleFromDateChange}
+          handlerToDateChange={handleToDateChange}
+          handlerEducationSubmit={handleEducationSubmit}
+        />
       </div>
-      <Output personalData={personalData} showData={showCVFlag} />
+      <Output
+        personalData={personalData}
+        educationArray={educationDataArray}
+        showData={showCVFlag}
+      />
     </div>
   );
 }
