@@ -19,9 +19,25 @@ function App() {
     from: "",
     to: "",
   });
+  const [practicalExperienceDataArray, setPracticalExperienceDataArray] =
+    useState([]);
+  const [practicalExperienceFormData, setPracticalExperienceFormData] =
+    useState({
+      companyName: "",
+      positionTitle: "",
+      responsibilities: "",
+      from: "",
+      to: "",
+      workingThereFlag: false,
+    });
 
-  const [selectedID, setSelectedID] = useState(null);
+  const [selectedEducationID, setSelectedEducationID] = useState(null);
   const [updateEducationFlag, setUpdateEducationFlag] = useState(false);
+
+  const [selectedPracticalExperienceID, setSelectedPracticalExperienceID] =
+    useState(null);
+  const [updatePracticalExperienceFlag, setUpdatePracticalExperienceFlag] =
+    useState(false);
 
   const [showCVFlag, setShowCVFlag] = useState(false);
   const handleNameChange = (event) => {
@@ -92,7 +108,7 @@ function App() {
     ]);
   };
   const handleEducationUpdate = (id) => {
-    setSelectedID(id);
+    setSelectedEducationID(id);
     const educationDataArrayCopy = [...educationDataArray];
     const dataFromId = educationDataArrayCopy.find(
       (educationItem) => educationItem.id === id
@@ -109,7 +125,7 @@ function App() {
     event.preventDefault();
     const educationDataCopy = [...educationDataArray];
     const educationalDataToUpdate = educationDataCopy.find(
-      (educationDataItem) => educationDataItem.id === selectedID
+      (educationDataItem) => educationDataItem.id === selectedEducationID
     );
     educationalDataToUpdate.schoolName = educationFormData.schoolName;
     educationalDataToUpdate.titleOfStudy = educationFormData.titleOfStudy;
@@ -123,6 +139,64 @@ function App() {
       to: "",
     });
     setUpdateEducationFlag(!updateEducationFlag);
+  };
+
+  const handleCompanyNameChange = (event) => {
+    setPracticalExperienceFormData({
+      ...practicalExperienceFormData,
+      companyName: event.target.value,
+    });
+  };
+
+  const handlePositionTitleChange = (event) => {
+    setPracticalExperienceFormData({
+      ...practicalExperienceFormData,
+      positionTitle: event.target.value,
+    });
+  };
+
+  const handleResponsibilitiesChange = (event) => {
+    setPracticalExperienceFormData({
+      ...practicalExperienceFormData,
+      responsibilities: event.target.value,
+    });
+  };
+
+  const handleFromDatePracticalChange = (event) => {
+    setPracticalExperienceFormData({
+      ...practicalExperienceFormData,
+      from: event.target.value,
+    });
+  };
+
+  const handleToDatePracticalChange = (event) => {
+    setPracticalExperienceFormData({
+      ...practicalExperienceFormData,
+      to: event.target.value,
+    });
+  };
+
+  const handleWorkingFlagChange = (event) => {
+    setPracticalExperienceFormData({
+      ...practicalExperienceFormData,
+      workingThereFlag: event.target.checked,
+    });
+  };
+
+  const handlePracticalExperienceSubmit = (event) => {
+    event.preventDefault();
+    setPracticalExperienceDataArray([
+      ...practicalExperienceDataArray,
+      { id: crypto.randomUUID(), ...practicalExperienceFormData },
+    ]);
+    setPracticalExperienceFormData({
+      companyName: "",
+      positionTitle: "",
+      responsibilities: "",
+      from: "",
+      to: "",
+      workingThereFlag: false,
+    });
   };
   if (updateEducationFlag) {
     return (
@@ -155,11 +229,21 @@ function App() {
             handlerToDateChange={handleToDateChange}
             handlerEducationSubmit={handleEducationSubmit}
           />
-          <PracticalExperience />
+          <PracticalExperience
+            practicalExperienceData={practicalExperienceFormData}
+            handlerCompanyNameChange={handleCompanyNameChange}
+            handlerPositionTitleChange={handlePositionTitleChange}
+            handlerResponsibilitiesChange={handleResponsibilitiesChange}
+            handlerFromDatePracticalChange={handleFromDatePracticalChange}
+            handlerToDatePracticalChange={handleToDatePracticalChange}
+            handlerWorkingFlagChange={handleWorkingFlagChange}
+            handlerPracticalExperienceSubmit={handlePracticalExperienceSubmit}
+          />
         </div>
         <Output
           personalData={personalData}
           educationArray={educationDataArray}
+          practicalExperienceArray={practicalExperienceDataArray}
           showData={showCVFlag}
           handlerEducationDelete={handleEducationDelete}
           handlerEducationUpdate={handleEducationUpdate}

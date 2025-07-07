@@ -28,13 +28,14 @@ li {
     border-bottom: 1px solid black;
 }
 
-.education-row {
+.education-row, .practical-experience-row {
     display: flex;
     gap: 16px;
 }
 
-.education-text {
+.education-text, .practical-experience-text {
     padding-top: 10px;
+    flex: 1;
 }
 
 .delete {
@@ -47,6 +48,9 @@ li {
     font-weight: bold;
 }
 
+.practical-experience-row button {
+    padding: 10px;
+}
 .control {
     display: flex;
     gap: 16px;

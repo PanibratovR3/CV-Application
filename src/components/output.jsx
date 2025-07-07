@@ -3,6 +3,7 @@ import "../styles/output.css";
 function Output({
   personalData,
   educationArray,
+  practicalExperienceArray,
   showData,
   handlerEducationDelete,
   handlerEducationUpdate,
@@ -58,6 +59,43 @@ function Output({
                         >
                           Update
                         </button>
+                      </div>
+                    </div>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        )}
+        {practicalExperienceArray.length > 0 && (
+          <div className="practical-experience">
+            <h1>Practical Experience</h1>
+            <ul>
+              {practicalExperienceArray.map((practicalExperienceItem) => {
+                return (
+                  <li key={practicalExperienceItem.id}>
+                    <div className="practical-experience-row">
+                      <div className="practical-experience-text">
+                        <b>{practicalExperienceItem.companyName}</b>,
+                        <i>{practicalExperienceItem.positionTitle}</i>
+                        <p>{practicalExperienceItem.responsibilities}</p>
+                        <i>
+                          {practicalExperienceItem.from.slice(
+                            0,
+                            practicalExperienceItem.from.indexOf("-")
+                          )}{" "}
+                          -{" "}
+                          {practicalExperienceItem.workingThereFlag
+                            ? "present"
+                            : practicalExperienceItem.to.slice(
+                                0,
+                                practicalExperienceItem.to.indexOf("-")
+                              )}
+                        </i>
+                      </div>
+                      <div className="control">
+                        <button className="delete">Delete</button>
+                        <button className="update">Update</button>
                       </div>
                     </div>
                   </li>
