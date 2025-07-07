@@ -19,3 +19,15 @@ input {
 input[type="date"] {
     max-width: 160px;
 }
+
+textarea {
+    max-width: 160px;
+    resize: none;
+    min-height: 50px;
+}
+
+.row-checkbox {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}

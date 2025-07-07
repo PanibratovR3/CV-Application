@@ -4,6 +4,7 @@ import GeneralInformation from "./components/generalInformation.jsx";
 import Output from "./components/output.jsx";
 import Education from "./components/education.jsx";
 import UpdateEducation from "./components/updateEducation.jsx";
+import PracticalExperience from "./components/practicalExperience.jsx";
 
 function App() {
   const [personalData, setPersonalData] = useState({
@@ -18,12 +19,6 @@ function App() {
     from: "",
     to: "",
   });
-  // const [educationFormDataUpdate, setEducationFormDataUpdate] = useState({
-  //   schoolName: "",
-  //   titleOfStudy: "",
-  //   from: "",
-  //   to: "",
-  // });
 
   const [selectedID, setSelectedID] = useState(null);
   const [updateEducationFlag, setUpdateEducationFlag] = useState(false);
@@ -160,6 +155,7 @@ function App() {
             handlerToDateChange={handleToDateChange}
             handlerEducationSubmit={handleEducationSubmit}
           />
+          <PracticalExperience />
         </div>
         <Output
           personalData={personalData}
