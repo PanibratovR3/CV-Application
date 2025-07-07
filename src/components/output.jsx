@@ -20,9 +20,9 @@ function Output({
             <i>{personalData.phoneNumber}</i>
           </div>
         </div>
-        <div className="education">
-          <h1>Education</h1>
-          {educationArray.length > 0 && (
+        {educationArray.length > 0 && (
+          <div className="education">
+            <h1>Education</h1>
             <ul>
               {educationArray.map((educationItem) => {
                 return (
@@ -64,8 +64,8 @@ function Output({
                 );
               })}
             </ul>
-          )}
-        </div>
+          </div>
+        )}
       </div>
     )
   );

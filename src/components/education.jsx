@@ -19,12 +19,14 @@ function Education({
             type="text"
             value={educationData.schoolName}
             onChange={handlerSchoolNameChange}
+            placeholder="Stanford"
           />
         </div>
         <div className="row">
           <label>Title of study: </label>
           <input
             type="text"
+            placeholder="Medicine"
             value={educationData.titleOfStudy}
             onChange={handlerTitleOfStudyChange}
           />
