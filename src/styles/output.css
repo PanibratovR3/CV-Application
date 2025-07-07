@@ -41,3 +41,13 @@ li {
     background-color: darkred;
     color: white;
 }
+
+.update {
+    background-color: limegreen;
+    font-weight: bold;
+}
+
+.control {
+    display: flex;
+    gap: 16px;
+}

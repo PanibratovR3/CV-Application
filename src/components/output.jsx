@@ -5,6 +5,7 @@ function Output({
   educationArray,
   showData,
   handlerEducationDelete,
+  handlerEducationUpdate,
 }) {
   return (
     showData && (
@@ -40,6 +41,14 @@ function Output({
                           }
                         >
                           Delete
+                        </button>
+                        <button
+                          className="update"
+                          onClick={() =>
+                            handlerEducationUpdate(educationItem.id)
+                          }
+                        >
+                          Update
                         </button>
                       </div>
                     </div>

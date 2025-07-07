@@ -3,6 +3,7 @@ import "./App.css";
 import GeneralInformation from "./components/generalInformation.jsx";
 import Output from "./components/output.jsx";
 import Education from "./components/education.jsx";
+import UpdateEducation from "./components/updateEducation.jsx";
 
 function App() {
   const [personalData, setPersonalData] = useState({
@@ -17,6 +18,15 @@ function App() {
     from: "",
     to: "",
   });
+  // const [educationFormDataUpdate, setEducationFormDataUpdate] = useState({
+  //   schoolName: "",
+  //   titleOfStudy: "",
+  //   from: "",
+  //   to: "",
+  // });
+
+  const [selectedID, setSelectedID] = useState(null);
+  const [updateEducationFlag, setUpdateEducationFlag] = useState(false);
 
   const [showCVFlag, setShowCVFlag] = useState(false);
   const handleNameChange = (event) => {
@@ -86,32 +96,81 @@ function App() {
       ...educationDataArray.filter((educationItem) => educationItem.id !== id),
     ]);
   };
-  return (
-    <div className="field">
+  const handleEducationUpdate = (id) => {
+    setSelectedID(id);
+    const educationDataArrayCopy = [...educationDataArray];
+    const dataFromId = educationDataArrayCopy.find(
+      (educationItem) => educationItem.id === id
+    );
+    setEducationFormData({
+      schoolName: dataFromId.schoolName,
+      titleOfStudy: dataFromId.titleOfStudy,
+      from: dataFromId.from,
+      to: dataFromId.to,
+    });
+    setUpdateEducationFlag(!updateEducationFlag);
+  };
+  const handleEducationUpdateSubmit = (event) => {
+    event.preventDefault();
+    const educationDataCopy = [...educationDataArray];
+    const educationalDataToUpdate = educationDataCopy.find(
+      (educationDataItem) => educationDataItem.id === selectedID
+    );
+    educationalDataToUpdate.schoolName = educationFormData.schoolName;
+    educationalDataToUpdate.titleOfStudy = educationFormData.titleOfStudy;
+    educationalDataToUpdate.from = educationFormData.from;
+    educationalDataToUpdate.to = educationFormData.to;
+    setEducationDataArray([...educationDataCopy]);
+    setEducationFormData({
+      schoolName: "",
+      titleOfStudy: "",
+      from: "",
+      to: "",
+    });
+    setUpdateEducationFlag(!updateEducationFlag);
+  };
+  if (updateEducationFlag) {
+    return (
       <div>
-        <GeneralInformation
-          handlerNameChange={handleNameChange}
-          handlerEmailChange={handleEmailChange}
-          handlerPhoneChange={handlePhoneChange}
-          handlerPersonalSubmit={handlePersonalDataSubmit}
-        />
-        <Education
-          educationData={educationFormData}
+        <UpdateEducation
+          educationFormData={educationFormData}
           handlerSchoolNameChange={handleSchoolNameChange}
           handlerTitleOfStudyChange={handleTitleOfStudyChange}
           handlerFromDateChange={handleFromDateChange}
           handlerToDateChange={handleToDateChange}
-          handlerEducationSubmit={handleEducationSubmit}
+          handlerEducationUpdateSubmit={handleEducationUpdateSubmit}
         />
       </div>
-      <Output
-        personalData={personalData}
-        educationArray={educationDataArray}
-        showData={showCVFlag}
-        handlerEducationDelete={handleEducationDelete}
-      />
-    </div>
-  );
+    );
+  } else {
+    return (
+      <div className="field">
+        <div>
+          <GeneralInformation
+            handlerNameChange={handleNameChange}
+            handlerEmailChange={handleEmailChange}
+            handlerPhoneChange={handlePhoneChange}
+            handlerPersonalSubmit={handlePersonalDataSubmit}
+          />
+          <Education
+            educationData={educationFormData}
+            handlerSchoolNameChange={handleSchoolNameChange}
+            handlerTitleOfStudyChange={handleTitleOfStudyChange}
+            handlerFromDateChange={handleFromDateChange}
+            handlerToDateChange={handleToDateChange}
+            handlerEducationSubmit={handleEducationSubmit}
+          />
+        </div>
+        <Output
+          personalData={personalData}
+          educationArray={educationDataArray}
+          showData={showCVFlag}
+          handlerEducationDelete={handleEducationDelete}
+          handlerEducationUpdate={handleEducationUpdate}
+        />
+      </div>
+    );
+  }
 }
 
 export default App;
