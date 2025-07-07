@@ -31,7 +31,15 @@ function Output({
                       <div className="education-text">
                         <b>{educationItem.schoolName}</b>,{" "}
                         <i>{educationItem.titleOfStudy}</i>,{" "}
-                        {educationItem.from} - {educationItem.to}
+                        {educationItem.from.slice(
+                          0,
+                          educationItem.from.indexOf("-")
+                        )}{" "}
+                        -{" "}
+                        {educationItem.to.slice(
+                          0,
+                          educationItem.to.indexOf("-")
+                        )}
                       </div>
                       <div className="control">
                         <button
