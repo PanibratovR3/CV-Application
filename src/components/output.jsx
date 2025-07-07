@@ -8,6 +8,7 @@ function Output({
   handlerEducationDelete,
   handlerEducationUpdate,
   handlerPracticalExperienceDelete,
+  handlerPracticalExperienceUpdate,
 }) {
   return (
     showData && (
@@ -105,7 +106,16 @@ function Output({
                         >
                           Delete
                         </button>
-                        <button className="update">Update</button>
+                        <button
+                          className="update"
+                          onClick={() =>
+                            handlerPracticalExperienceUpdate(
+                              practicalExperienceItem.id
+                            )
+                          }
+                        >
+                          Update
+                        </button>
                       </div>
                     </div>
                   </li>

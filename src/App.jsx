@@ -5,6 +5,7 @@ import Output from "./components/output.jsx";
 import Education from "./components/education.jsx";
 import UpdateEducation from "./components/updateEducation.jsx";
 import PracticalExperience from "./components/practicalExperience.jsx";
+import UpdatePracticalExperience from "./components/updatePracticalExperience.jsx";
 
 function App() {
   const [personalData, setPersonalData] = useState({
@@ -206,6 +207,53 @@ function App() {
       ),
     ]);
   };
+
+  const handlePracticalExperienceUpdate = (id) => {
+    setSelectedPracticalExperienceID(id);
+    const practicalExperienceDataArrayCopy = [...practicalExperienceDataArray];
+    const dataFromId = practicalExperienceDataArrayCopy.find(
+      (practicalExperienceItem) => practicalExperienceItem.id === id
+    );
+    setPracticalExperienceFormData({
+      companyName: dataFromId.companyName,
+      positionTitle: dataFromId.positionTitle,
+      responsibilities: dataFromId.responsibilities,
+      from: dataFromId.from,
+      to: dataFromId.to,
+      workingThereFlag: dataFromId.workingThereFlag,
+    });
+    setUpdatePracticalExperienceFlag(!updatePracticalExperienceFlag);
+  };
+
+  const handlePracticalExperienceUpdateSubmit = (event) => {
+    event.preventDefault();
+    const practicalExperienceDataCopy = [...practicalExperienceDataArray];
+    const practicalExperienceToUpdate = practicalExperienceDataCopy.find(
+      (practicalExperienceItem) =>
+        practicalExperienceItem.id === selectedPracticalExperienceID
+    );
+    practicalExperienceToUpdate.companyName =
+      practicalExperienceFormData.companyName;
+    practicalExperienceToUpdate.positionTitle =
+      practicalExperienceFormData.positionTitle;
+    practicalExperienceToUpdate.responsibilities =
+      practicalExperienceFormData.responsibilities;
+    practicalExperienceToUpdate.from = practicalExperienceFormData.from;
+    practicalExperienceToUpdate.to = practicalExperienceFormData.to;
+    practicalExperienceToUpdate.workingThereFlag =
+      practicalExperienceFormData.workingThereFlag;
+    setPracticalExperienceDataArray([...practicalExperienceDataCopy]);
+    setPracticalExperienceFormData({
+      companyName: "",
+      positionTitle: "",
+      responsibilities: "",
+      from: "",
+      to: "",
+      workingThereFlag: false,
+    });
+    setUpdatePracticalExperienceFlag(!updatePracticalExperienceFlag);
+  };
+
   if (updateEducationFlag) {
     return (
       <div>
@@ -216,6 +264,23 @@ function App() {
           handlerFromDateChange={handleFromDateChange}
           handlerToDateChange={handleToDateChange}
           handlerEducationUpdateSubmit={handleEducationUpdateSubmit}
+        />
+      </div>
+    );
+  } else if (updatePracticalExperienceFlag) {
+    return (
+      <div>
+        <UpdatePracticalExperience
+          practicalExperienceFormData={practicalExperienceFormData}
+          handlerCompanyNameChange={handleCompanyNameChange}
+          handlerPositionTitleChange={handlePositionTitleChange}
+          handlerResponsibilitiesChange={handleResponsibilitiesChange}
+          handlerFromDatePracticalChange={handleFromDatePracticalChange}
+          handlerToDatePracticalChange={handleToDatePracticalChange}
+          handlerWorkingFlagChange={handleWorkingFlagChange}
+          handlerPracticalExperienceUpdateSubmit={
+            handlePracticalExperienceUpdateSubmit
+          }
         />
       </div>
     );
@@ -256,6 +321,7 @@ function App() {
           handlerEducationDelete={handleEducationDelete}
           handlerEducationUpdate={handleEducationUpdate}
           handlerPracticalExperienceDelete={handlePracticalExperienceDelete}
+          handlerPracticalExperienceUpdate={handlePracticalExperienceUpdate}
         />
       </div>
     );
