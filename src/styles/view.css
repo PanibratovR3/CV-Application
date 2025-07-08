@@ -29,3 +29,9 @@ h2 {
     margin-left: 50px;
     font-size: 1.3rem;
 }
+
+@media (prefers-color-scheme: dark) {
+    .view {
+        color: black;
+    }
+}

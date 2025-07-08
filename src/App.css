@@ -63,3 +63,15 @@ body {
     flex-wrap: wrap;
   }
 }
+
+@media (prefers-color-scheme: dark) {
+  h1 {
+    color: black;
+  }
+  label {
+    color: black;
+  }
+  input::placeholder, textarea::placeholder {
+    color: white;
+  }
+}

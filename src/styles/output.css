@@ -56,3 +56,13 @@ li {
     border: 5px solid black;
     padding: 30px;
 }
+
+@media (prefers-color-scheme: dark) {
+    .output-container {
+        color: black;
+    }
+
+    .update {
+        color: black;
+    }
+}

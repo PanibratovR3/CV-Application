@@ -43,3 +43,9 @@ textarea {
     background-color:mediumspringgreen;
     font-weight: bold;
 }
+
+@media (prefers-color-scheme: dark) {
+    .mode {
+        color: black;
+    }
+}
