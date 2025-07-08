@@ -304,7 +304,7 @@ function App() {
     );
   } else {
     return (
-      <div>
+      <div className="background">
         <h1>CV Application</h1>
         <div className="mode-control">
           <button className="mode" onClick={handleViewMode}>

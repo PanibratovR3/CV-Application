@@ -1,9 +1,3 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 .row-output {
     display: flex;
     font-size: 1rem;
@@ -51,7 +45,14 @@ li {
 .practical-experience-row button {
     padding: 10px;
 }
+
 .control {
     display: flex;
     gap: 16px;
+}
+
+.output-container {
+    background-color: azure;
+    border: 5px solid black;
+    padding: 30px;
 }

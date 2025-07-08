@@ -12,7 +12,7 @@ function Output({
 }) {
   return (
     showData && (
-      <div>
+      <div className="output-container">
         <div className="personal-data">
           <h1>{personalData.name}</h1>
           <div className="row-output">
