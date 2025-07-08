@@ -1,3 +1,5 @@
+import "../styles/update.css";
+
 function UpdateEducation({
   educationFormData,
   handlerSchoolNameChange,
@@ -7,7 +9,7 @@ function UpdateEducation({
   handlerEducationUpdateSubmit,
 }) {
   return (
-    <div>
+    <div className="update-form">
       <h1>Update Education Info</h1>
       <form onSubmit={handlerEducationUpdateSubmit}>
         <div className="row">

@@ -1,3 +1,5 @@
+import "../styles/update.css";
+
 function UpdatePracticalExperience({
   practicalExperienceFormData,
   handlerCompanyNameChange,
@@ -9,7 +11,7 @@ function UpdatePracticalExperience({
   handlerPracticalExperienceUpdateSubmit,
 }) {
   return (
-    <div>
+    <div className="update-form">
       <h1>Update Practical Experience Info</h1>
       <form onSubmit={handlerPracticalExperienceUpdateSubmit}>
         <div className="row">
