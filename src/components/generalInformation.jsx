@@ -13,8 +13,9 @@ function GeneralInformation({
       <h1>General Information</h1>
       <form onSubmit={handlerPersonalSubmit}>
         <div className="row">
-          <label>Name:</label>
+          <label htmlFor="name">Name:</label>
           <input
+            id="name"
             type="text"
             placeholder="John Doe"
             onChange={handlerNameChange}
@@ -22,8 +23,9 @@ function GeneralInformation({
           />
         </div>
         <div className="row">
-          <label>Email:</label>
+          <label htmlFor="email">Email:</label>
           <input
+            id="email"
             type="email"
             placeholder="myemail@email.com"
             onChange={handlerEmailChange}
@@ -31,8 +33,9 @@ function GeneralInformation({
           />
         </div>
         <div className="row">
-          <label>Phone number:</label>
+          <label htmlFor="phone">Phone number:</label>
           <input
+            id="phone"
             type="tel"
             placeholder="+xx-xxx-xxx-xx-xx"
             onChange={handlerPhoneChange}

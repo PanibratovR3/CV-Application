@@ -13,39 +13,44 @@ function UpdatePracticalExperience({
       <h1>Update Practical Experience Info</h1>
       <form onSubmit={handlerPracticalExperienceUpdateSubmit}>
         <div className="row">
-          <label>Company Name:</label>
+          <label htmlFor="company-name">Company Name:</label>
           <input
+            id="company-name"
             type="text"
             value={practicalExperienceFormData.companyName}
             onChange={handlerCompanyNameChange}
           />
         </div>
         <div className="row">
-          <label>Position Title:</label>
+          <label htmlFor="position-title">Position Title:</label>
           <input
+            id="position-title"
             type="text"
             value={practicalExperienceFormData.positionTitle}
             onChange={handlerPositionTitleChange}
           />
         </div>
         <div className="row">
-          <label>Responsibilities:</label>
+          <label htmlFor="responsibilities">Responsibilities:</label>
           <textarea
+            id="responsibilities"
             value={practicalExperienceFormData.responsibilities}
             onChange={handlerResponsibilitiesChange}
           />
         </div>
         <div className="row">
-          <label>From:</label>
+          <label htmlFor="from-practical-experience">From:</label>
           <input
+            id="from-practical-experience"
             type="date"
             value={practicalExperienceFormData.from}
             onChange={handlerFromDatePracticalChange}
           />
         </div>
         <div className="row">
-          <label>To:</label>
+          <label htmlFor="to-practical-experience">To:</label>
           <input
+            id="to-practical-experience"
             type="date"
             value={practicalExperienceFormData.to}
             onChange={handlerToDatePracticalChange}

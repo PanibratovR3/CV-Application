@@ -14,8 +14,9 @@ function Education({
       <h1>Education</h1>
       <form onSubmit={handlerEducationSubmit}>
         <div className="row">
-          <label>School name: </label>
+          <label htmlFor="school-name">School name: </label>
           <input
+            id="school-name"
             type="text"
             value={educationData.schoolName}
             onChange={handlerSchoolNameChange}
@@ -23,8 +24,9 @@ function Education({
           />
         </div>
         <div className="row">
-          <label>Title of study: </label>
+          <label htmlFor="title-of-study">Title of study: </label>
           <input
+            id="title-of-study"
             type="text"
             placeholder="Medicine"
             value={educationData.titleOfStudy}
@@ -32,16 +34,18 @@ function Education({
           />
         </div>
         <div className="row">
-          <label>From: </label>
+          <label htmlFor="from-education">From: </label>
           <input
+            id="from-education"
             type="date"
             value={educationData.from}
             onChange={handlerFromDateChange}
           />
         </div>
         <div className="row">
-          <label>To: </label>
+          <label htmlFor="to-education">To: </label>
           <input
+            id="to-education"
             type="date"
             value={educationData.to}
             onChange={handlerToDateChange}

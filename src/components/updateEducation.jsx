@@ -11,32 +11,36 @@ function UpdateEducation({
       <h1>Update Education Info</h1>
       <form onSubmit={handlerEducationUpdateSubmit}>
         <div className="row">
-          <label>School name: </label>
+          <label htmlFor="school-name">School name: </label>
           <input
+            id="school-name"
             type="text"
             value={educationFormData.schoolName}
             onChange={handlerSchoolNameChange}
           />
         </div>
         <div className="row">
-          <label>Title of study: </label>
+          <label htmlFor="title-of-study">Title of study: </label>
           <input
+            id="title-of-study"
             type="text"
             value={educationFormData.titleOfStudy}
             onChange={handlerTitleOfStudyChange}
           />
         </div>
         <div className="row">
-          <label>From: </label>
+          <label htmlFor="from-education">From: </label>
           <input
+            id="from-education"
             type="date"
             value={educationFormData.from}
             onChange={handlerFromDateChange}
           />
         </div>
         <div className="row">
-          <label>To: </label>
+          <label htmlFor="to-education">To: </label>
           <input
+            id="to-education"
             type="date"
             value={educationFormData.to}
             onChange={handlerToDateChange}

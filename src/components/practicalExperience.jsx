@@ -16,8 +16,9 @@ function PracticalExperience({
       <h1>Practical Experience</h1>
       <form onSubmit={handlerPracticalExperienceSubmit}>
         <div className="row">
-          <label>Company Name:</label>
+          <label htmlFor="company-name">Company Name:</label>
           <input
+            id="company-name"
             type="text"
             placeholder="Abstergo"
             value={practicalExperienceData.companyName}
@@ -25,8 +26,9 @@ function PracticalExperience({
           />
         </div>
         <div className="row">
-          <label>Position Title:</label>
+          <label htmlFor="position-title">Position Title:</label>
           <input
+            id="position-title"
             type="text"
             placeholder="Scientist"
             value={practicalExperienceData.positionTitle}
@@ -34,24 +36,27 @@ function PracticalExperience({
           />
         </div>
         <div className="row">
-          <label>Responsibilities:</label>
+          <label htmlFor="responsibilities">Responsibilities:</label>
           <textarea
+            id="responsibilities"
             value={practicalExperienceData.responsibilities}
             onChange={handlerResponsibilitiesChange}
             placeholder="Been there, done that."
           />
         </div>
         <div className="row">
-          <label>From:</label>
+          <label htmlFor="from-practical-experience">From:</label>
           <input
+            id="from-practical-experience"
             type="date"
             value={practicalExperienceData.from}
             onChange={handlerFromDatePracticalChange}
           />
         </div>
         <div className="row">
-          <label>To:</label>
+          <label htmlFor="to-practical-experience">To:</label>
           <input
+            id="to-practical-experience"
             type="date"
             value={practicalExperienceData.to}
             onChange={handlerToDatePracticalChange}
