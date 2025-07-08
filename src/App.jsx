@@ -6,6 +6,7 @@ import Education from "./components/education.jsx";
 import UpdateEducation from "./components/updateEducation.jsx";
 import PracticalExperience from "./components/practicalExperience.jsx";
 import UpdatePracticalExperience from "./components/updatePracticalExperience.jsx";
+import View from "./components/view.jsx";
 
 function App() {
   const [personalData, setPersonalData] = useState({
@@ -39,6 +40,8 @@ function App() {
     useState(null);
   const [updatePracticalExperienceFlag, setUpdatePracticalExperienceFlag] =
     useState(false);
+
+  const [viewModeFlag, setViewModeFlag] = useState(false);
 
   const [showCVFlag, setShowCVFlag] = useState(false);
   const handleNameChange = (event) => {
@@ -254,6 +257,10 @@ function App() {
     setUpdatePracticalExperienceFlag(!updatePracticalExperienceFlag);
   };
 
+  const handleViewMode = () => {
+    setViewModeFlag(!viewModeFlag);
+  };
+
   if (updateEducationFlag) {
     return (
       <div>
@@ -284,45 +291,64 @@ function App() {
         />
       </div>
     );
+  } else if (viewModeFlag) {
+    return (
+      <div>
+        <View
+          personalData={personalData}
+          educationData={educationDataArray}
+          practicalExperienceData={practicalExperienceDataArray}
+          handleViewMode={handleViewMode}
+        />
+      </div>
+    );
   } else {
     return (
-      <div className="field">
-        <div>
-          <GeneralInformation
-            handlerNameChange={handleNameChange}
-            handlerEmailChange={handleEmailChange}
-            handlerPhoneChange={handlePhoneChange}
-            handlerPersonalSubmit={handlePersonalDataSubmit}
-          />
-          <Education
-            educationData={educationFormData}
-            handlerSchoolNameChange={handleSchoolNameChange}
-            handlerTitleOfStudyChange={handleTitleOfStudyChange}
-            handlerFromDateChange={handleFromDateChange}
-            handlerToDateChange={handleToDateChange}
-            handlerEducationSubmit={handleEducationSubmit}
-          />
-          <PracticalExperience
-            practicalExperienceData={practicalExperienceFormData}
-            handlerCompanyNameChange={handleCompanyNameChange}
-            handlerPositionTitleChange={handlePositionTitleChange}
-            handlerResponsibilitiesChange={handleResponsibilitiesChange}
-            handlerFromDatePracticalChange={handleFromDatePracticalChange}
-            handlerToDatePracticalChange={handleToDatePracticalChange}
-            handlerWorkingFlagChange={handleWorkingFlagChange}
-            handlerPracticalExperienceSubmit={handlePracticalExperienceSubmit}
+      <div>
+        <h1>CV Application</h1>
+        <div className="mode-control">
+          <button className="mode" onClick={handleViewMode}>
+            View Mode
+          </button>
+        </div>
+        <div className="field">
+          <div>
+            <GeneralInformation
+              handlerNameChange={handleNameChange}
+              handlerEmailChange={handleEmailChange}
+              handlerPhoneChange={handlePhoneChange}
+              handlerPersonalSubmit={handlePersonalDataSubmit}
+            />
+            <Education
+              educationData={educationFormData}
+              handlerSchoolNameChange={handleSchoolNameChange}
+              handlerTitleOfStudyChange={handleTitleOfStudyChange}
+              handlerFromDateChange={handleFromDateChange}
+              handlerToDateChange={handleToDateChange}
+              handlerEducationSubmit={handleEducationSubmit}
+            />
+            <PracticalExperience
+              practicalExperienceData={practicalExperienceFormData}
+              handlerCompanyNameChange={handleCompanyNameChange}
+              handlerPositionTitleChange={handlePositionTitleChange}
+              handlerResponsibilitiesChange={handleResponsibilitiesChange}
+              handlerFromDatePracticalChange={handleFromDatePracticalChange}
+              handlerToDatePracticalChange={handleToDatePracticalChange}
+              handlerWorkingFlagChange={handleWorkingFlagChange}
+              handlerPracticalExperienceSubmit={handlePracticalExperienceSubmit}
+            />
+          </div>
+          <Output
+            personalData={personalData}
+            educationArray={educationDataArray}
+            practicalExperienceArray={practicalExperienceDataArray}
+            showData={showCVFlag}
+            handlerEducationDelete={handleEducationDelete}
+            handlerEducationUpdate={handleEducationUpdate}
+            handlerPracticalExperienceDelete={handlePracticalExperienceDelete}
+            handlerPracticalExperienceUpdate={handlePracticalExperienceUpdate}
           />
         </div>
-        <Output
-          personalData={personalData}
-          educationArray={educationDataArray}
-          practicalExperienceArray={practicalExperienceDataArray}
-          showData={showCVFlag}
-          handlerEducationDelete={handleEducationDelete}
-          handlerEducationUpdate={handleEducationUpdate}
-          handlerPracticalExperienceDelete={handlePracticalExperienceDelete}
-          handlerPracticalExperienceUpdate={handlePracticalExperienceUpdate}
-        />
       </div>
     );
   }
