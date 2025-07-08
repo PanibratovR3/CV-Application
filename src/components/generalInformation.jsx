@@ -2,6 +2,7 @@ import "../styles/form.css";
 import "../styles/generalInformation.css";
 
 function GeneralInformation({
+  personalData,
   handlerNameChange,
   handlerEmailChange,
   handlerPhoneChange,
@@ -17,6 +18,7 @@ function GeneralInformation({
             type="text"
             placeholder="John Doe"
             onChange={handlerNameChange}
+            value={personalData.name}
           />
         </div>
         <div className="row">
@@ -25,6 +27,7 @@ function GeneralInformation({
             type="email"
             placeholder="myemail@email.com"
             onChange={handlerEmailChange}
+            value={personalData.email}
           />
         </div>
         <div className="row">
@@ -33,6 +36,7 @@ function GeneralInformation({
             type="tel"
             placeholder="+xx-xxx-xxx-xx-xx"
             onChange={handlerPhoneChange}
+            value={personalData.phoneNumber}
           />
         </div>
         <div className="row">

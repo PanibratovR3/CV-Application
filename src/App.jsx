@@ -314,6 +314,7 @@ function App() {
         <div className="field">
           <div>
             <GeneralInformation
+              personalData={personalData}
               handlerNameChange={handleNameChange}
               handlerEmailChange={handleEmailChange}
               handlerPhoneChange={handlePhoneChange}
