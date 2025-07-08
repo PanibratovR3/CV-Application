@@ -21,6 +21,7 @@ function Education({
             value={educationData.schoolName}
             onChange={handlerSchoolNameChange}
             placeholder="Stanford"
+            autoComplete="on"
           />
         </div>
         <div className="row">
@@ -29,6 +30,7 @@ function Education({
             id="title-of-study"
             type="text"
             placeholder="Medicine"
+            autoComplete="on"
             value={educationData.titleOfStudy}
             onChange={handlerTitleOfStudyChange}
           />

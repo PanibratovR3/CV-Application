@@ -20,6 +20,7 @@ function GeneralInformation({
             placeholder="John Doe"
             onChange={handlerNameChange}
             value={personalData.name}
+            autoComplete="on"
           />
         </div>
         <div className="row">
@@ -30,6 +31,7 @@ function GeneralInformation({
             placeholder="myemail@email.com"
             onChange={handlerEmailChange}
             value={personalData.email}
+            autoComplete="on"
           />
         </div>
         <div className="row">
@@ -40,6 +42,7 @@ function GeneralInformation({
             placeholder="+xx-xxx-xxx-xx-xx"
             onChange={handlerPhoneChange}
             value={personalData.phoneNumber}
+            autoComplete="on"
           />
         </div>
         <div className="row">

@@ -21,6 +21,7 @@ function PracticalExperience({
             id="company-name"
             type="text"
             placeholder="Abstergo"
+            autoComplete="on"
             value={practicalExperienceData.companyName}
             onChange={handlerCompanyNameChange}
           />
@@ -31,6 +32,7 @@ function PracticalExperience({
             id="position-title"
             type="text"
             placeholder="Scientist"
+            autoComplete="on"
             value={practicalExperienceData.positionTitle}
             onChange={handlerPositionTitleChange}
           />
@@ -42,6 +44,7 @@ function PracticalExperience({
             value={practicalExperienceData.responsibilities}
             onChange={handlerResponsibilitiesChange}
             placeholder="Been there, done that."
+            autoComplete="on"
           />
         </div>
         <div className="row">
